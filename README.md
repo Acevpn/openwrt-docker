@@ -8,5 +8,9 @@ To run, execute the following command:
 ```
 docker run --rm -it -p 2222:22/tcp -p 44343:443/tcp -p 8080:80/tcp --name=openwrt-acevpn openwrt:latest
 ```
+Prebuilt image is at https://hub.docker.com/r/acevpn/openwrt
+```
+docker pull acevpn/openwrt
+```
 
 Questions? Contact [Acevpn](https://www.acevpn.com/)
