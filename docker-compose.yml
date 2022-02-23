@@ -1,0 +1,15 @@
+version: "3"
+services:
+  openwrt:
+    image: acevpn/openwrt:latest
+    container_name: openwrt
+    restart: unless-stopped
+    ports:
+      - '37480:80/tcp'
+      - '37443:443/tcp'
+      - '3722:22/tcp'
+    environment:
+      TZ: 'America/New_York'
+    volumes:
+      - ./etc/:/etc/
+      - ./etc/config:/etc/config        
