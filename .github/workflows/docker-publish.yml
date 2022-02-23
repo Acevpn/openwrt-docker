@@ -20,8 +20,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   # IMAGE_NAME: ${{ github.repository }}
-  IMAGE_CUSTOM_NAME: 'openwrt'
-  IMAGE_NAME: '${{ github.repository_owner }}/${{ env.IMAGE_CUSTOM_NAME }}'
+  IMAGE_NAME: '${{ github.repository_owner }}/openwrt'
 
 
 jobs:
@@ -76,7 +75,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_CUSTOM_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}, ${{ secrets.DOCKERHUB_USERNAME }}/openwrt
           tags: latest
 
       # Build and push Docker image with Buildx (don't push on PR)
