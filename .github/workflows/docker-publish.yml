@@ -75,7 +75,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}, ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}, ${{ secrets.DOCKERHUB_USERNAME }}/openwrt
           tags: latest
 
       # Build and push Docker image with Buildx (don't push on PR)
