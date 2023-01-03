@@ -1,6 +1,4 @@
-ARG VERSION=latest
-
-FROM docker.io/katta/openwrt-rootfs:$VERSION
+FROM docker.io/openwrtorg/rootfs
 
 RUN mkdir -p /var/lock \
   && mkdir -p /var/run \
