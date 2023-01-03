@@ -14,6 +14,7 @@ on:
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:  
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -22,6 +23,9 @@ env:
   # IMAGE_NAME: ${{ github.repository }}
   IMAGE_NAME: '${{ github.repository_owner }}/openwrt'
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -85,6 +89,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          #platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
