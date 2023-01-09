@@ -7,7 +7,10 @@ RUN mkdir -p /var/lock \
   && mkdir -p /var/run \
   && opkg update \
   && opkg install \
-    luci && luci-ssl && luci-theme-openwrt && luci-app-https-dns-proxy \
+    luci \
+    luci-ssl \
+    luci-theme-openwrt \
+    luci-app-https-dns-proxy \
   && rm /var/opkg-lists/* \
   && /etc/init.d/dropbear enable
 
